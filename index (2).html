@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filterable responsive lightbox gallery tutorial</title>
+
+  <!-- magnific-popup css cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+  <div class="gallery">
+
+    <ul class="controls">
+      <li class="buttons active" data-filter="all">all</li>
+      <li class="buttons" data-filter="ice-cream">ice-cream</li>
+      <li class="buttons" data-filter="chocolate">chocolate</li>
+      <li class="buttons" data-filter="cake">cake</li>
+      <li class="buttons" data-filter="juice">juice</li>
+      <li class="buttons" data-filter="sandwich">sandwich</li>
+    </ul>
+
+    <div class="image-container">
+
+      <a href="icecream1.avif" class="image ice-cream">
+        <img src="icecream1.avif" alt="">
+      </a>
+      <a href="i4" class="image ice-cream">
+        <img src="i4" alt="">
+      </a>
+      <a href="i3" class="image ice-cream">
+        <img src="i3" alt="">
+      </a>
+
+      <a href="c2" class="image chocolate">
+        <img src="c2" alt="">
+      </a>
+      <a href="c1" class="image chocolate">
+        <img src="c1" alt="">
+      </a>
+
+      <a href="a5" class="image cake">
+        <img src="a5" alt="">
+      </a>
+      <a href="a4" class="image cake">
+        <img src="a4" alt="">
+      </a>
+      <a href="ca2" class="image cake">
+        <img src="ca2" alt="">
+      </a>
+      <a href="ca3" class="image cake">
+        <img src="ca3" alt="">
+      </a>
+      <a href="cake1" class="image cake">
+        <img src="cake1" alt="">
+      </a>
+
+      <a href="j1" class="image juice">
+        <img src="j1" alt="">
+      </a>
+      <a href="j2" class="image juice">
+        <img src="j2" alt="">
+      </a>
+      <a href="j3" class="image juice">
+        <img src="j3" alt="">
+      </a>
+
+      <a href="s1.jpg" class="image sandwich">
+        <img src="s1.jpg" alt="">
+      </a>
+      <a href="s2" class="image sandwich">
+        <img src="s2" alt="">
+      </a>
+      <a href="s3" class="image sandwich">
+        <img src="s3" alt="">
+      </a>
+      <a href="s4" class="image sandwich">
+        <img src="s4" alt="">
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- jquery cdn link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- magnific popup js cdn link  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $('.buttons').click(function () {
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if (filter == 'all') {
+          $('.image').show(400);
+        } else {
+          $('.image').not('.' + filter).hide(200);
+          $('.image').filter('.' + filter).show(400);
+        }
+
+      });
+
+      $('.gallery').magnificPopup({
+
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+          enabled: true
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>
